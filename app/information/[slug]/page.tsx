@@ -6,6 +6,7 @@ import { RegistryPuzzle } from "@/app/components/RegistryPuzzle";
 import { SignalLamps } from "@/app/components/SignalLamps";
 import { ConstellationPuzzle } from "@/app/components/ConstellationPuzzle";
 import { RadarRoute } from "@/app/components/RadarRoute";
+import { RouteSwapPuzzle } from "@/app/components/RouteSwapPuzzle";
 import { allPages, findPage } from "@/lib/tracks";
 
 const spaRules = [
@@ -65,6 +66,72 @@ function NatureMorsePanel() {
   );
 }
 
+const facilities = [
+  {
+    title: "Café og samlingssted",
+    text: "I Fjeldros café kan du begynde dagen med noget varmt, finde en rolig plads mellem turene og samles med de andre gæster, når dagens oplevelser skal deles.",
+  },
+  {
+    title: "Værelser med fjeldro",
+    text: "De hyggelige værelser er indrettet med god plads til både afslapning og udstyr. Her kan du trække dig tilbage, få varmen og vågne klar til en ny dag.",
+  },
+  {
+    title: "Spa og sauna",
+    text: "Efter timer i den friske luft venter spaområdet og den varme sauna. Området er skabt til rolige stunder, ømme ben og ny energi.",
+  },
+  {
+    title: "Tørrekælder",
+    text: "Vådt overtøj, støvler og handsker kan hænges i tørrekælderen, så udstyret er tørt og klar, når turen fortsætter næste morgen.",
+  },
+  {
+    title: "Skipister og vinterspor",
+    text: "Omkring Fjeldro ligger både brede pister og mindre spor gennem landskabet. Der er muligheder for fart, udsigt og ture i et roligere tempo.",
+  },
+];
+
+function PatternBanner({ pattern }: { pattern: "crescents" | "steps" | "rings" }) {
+  return (
+    <div className={`facility-banner facility-banner--${pattern}`} aria-hidden="true">
+      {Array.from({ length: pattern === "rings" ? 8 : 9 }, (_, index) => <i key={index} />)}
+    </div>
+  );
+}
+
+function FacilitiesPanel() {
+  return (
+    <section className="facilities-panel" aria-label="Faciliteter på Fjeldro">
+      <PatternBanner pattern="crescents" />
+      <div className="facilities-panel__intro">
+        <h2>Et sted til hele dagen</h2>
+        <p>Uanset om dagen står på lange ture, høj fart eller afslapning indenfor, er Fjeldros faciliteter samlet tæt på hinanden. Du kan gå direkte fra sne og kulde til varme rum, god mad og tid til at falde til ro.</p>
+      </div>
+
+      <PatternBanner pattern="steps" />
+      <div className="facility-list">
+        {facilities.map((facility, index) => (
+          <article className="facility-item" key={facility.title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{facility.title}</h3>
+              <p>{facility.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <PatternBanner pattern="rings" />
+      <div className="facility-colour-code" aria-hidden="true">
+        <i className="facility-colour-code__field facility-pattern--steps" />
+        <i className="facility-colour-code__field facility-pattern--crescents" />
+        <i className="facility-colour-code__field facility-pattern--rings" />
+        <i className="facility-colour-code__field facility-pattern--crescents" />
+        <i className="facility-colour-code__field facility-pattern--crescents" />
+        <i className="facility-colour-code__field facility-pattern--rings" />
+      </div>
+    </section>
+  );
+}
+
 export function generateStaticParams() {
   return allPages.map(({ slug }) => ({ slug }));
 }
@@ -76,6 +143,7 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
   const isRestricted = page.slug === "gransti-q4v8n1" || page.slug === "signalkammer-t5x9v2";
   const isConstellationPage = page.slug === "snebro-j2c7t4";
   const isRadarPage = page.slug === "radarsignal-c4m8q1";
+  const isRoutePuzzlePage = page.slug === "dalpassage-r9b4h7";
   const documentUrl = page.documentUrl ?? "/documents/fjeldro-deltagerbrev.pdf";
   const documentLabel = page.documentLabel ?? "Fjeldro · Deltagerinformation";
 
@@ -116,6 +184,8 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
         )}
         {page.slug === "signalkammer-t5x9v2" && <SignalLamps />}
         {page.slug === "frostlinje-p8d3w5" && <NatureMorsePanel />}
+        {page.slug === "fyrrespor-x3n6k8" && <FacilitiesPanel />}
+        {isRoutePuzzlePage && page.nextSlug && <RouteSwapPuzzle nextSlug={page.nextSlug} />}
         {isConstellationPage && page.nextSlug && <ConstellationPuzzle nextSlug={page.nextSlug} />}
         {isRadarPage && <RadarRoute />}
         {page.kind !== "final" && page.nextSlug && page.code && !isConstellationPage && (

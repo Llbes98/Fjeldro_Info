@@ -45,8 +45,8 @@ export const tracks: Track[] = [
     label: "Fyrrehytten",
     accent: "#315f77",
     pages: [
-      { slug: "fyrrespor-x3n6k8", kind: "start", eyebrow: "Ophold 03", title: "Velkommen til Fyrrehytten", body: "Din reservation er registreret. Skriv resortets navn for at fortsætte.", nextSlug: "dalpassage-r9b4h7", code: "fjeldro" },
-      { slug: "dalpassage-r9b4h7", kind: "step", eyebrow: "Information 03.1", title: "Passagen gennem dalen", body: "Den sidste del af rejsen foregår på en bestemt måde. Skriv hvordan.", nextSlug: "taagekant-v1s5p3", code: "til fods" },
+      { slug: "fyrrespor-x3n6k8", kind: "start", eyebrow: "Faciliteter på Fjeldro", title: "Alt til opholdet", body: "På Fjeldro finder du alt det, der gør dagene på fjeldet både behagelige, varme og fulde af oplevelser.", nextSlug: "dalpassage-r9b4h7", code: "538" },
+      { slug: "dalpassage-r9b4h7", kind: "step", eyebrow: "Teknisk oversigt · 03.1", title: "Rutenettet", body: "", nextSlug: "taagekant-v1s5p3" },
       { slug: "taagekant-v1s5p3", kind: "final", eyebrow: "Dokument 03", title: "Information til Fyrrehytten", body: "Dokumentet er klar til dig." },
     ],
   },

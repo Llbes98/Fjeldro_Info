@@ -183,6 +183,84 @@ h1 { margin: 0; color: var(--ink-deep); font-family: Georgia, "Times New Roman",
 .morse-graph__point { fill: #e6fbff; stroke: #62bfd8; stroke-width: 2; }
 @keyframes graph-segment-draw { to { stroke-dashoffset: 0; } }
 
+.station-walk { margin-top: 35px; }
+.station-walk__facts { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--line); background: #edf4f6; }
+.station-walk__facts span { padding: 18px 21px; color: #54798a; font-size: 12px; line-height: 1.45; }
+.station-walk__facts span + span { border-left: 1px solid var(--line); }
+.station-walk__facts strong { display: block; margin-bottom: 3px; color: var(--ink-deep); font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 500; }
+.station-walk__text { padding: 32px clamp(22px, 5vw, 43px) 36px; border-inline: 1px solid var(--line); }
+.station-walk__text h2 { margin: 0 0 18px; color: var(--ink-deep); font: 500 27px/1.2 Georgia, "Times New Roman", serif; }
+.station-walk__text p { margin: 0 0 17px; font-size: 15px; line-height: 1.72; }
+.station-walk__text p:last-child { margin-bottom: 0; }
+.walk-shell .tree-line { display: none; }
+.walk-cipher { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; display: block; width: 100%; height: auto; pointer-events: none; }
+
+.segment-mask-puzzle { margin-top: 36px; }
+.segment-mask-stage { position: relative; width: 100%; aspect-ratio: 707 / 281; overflow: hidden; background: #f3f7f8; border: 1px solid #89aab7; box-shadow: inset 0 0 30px rgba(7,62,93,.1), 0 10px 28px rgba(6,47,71,.12); }
+.segment-mask-digits { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.segment-mask-digits__segments { fill: #0a3347; filter: drop-shadow(0 2px 1px rgba(7,47,66,.16)); }
+.segment-mask-panel { position: absolute; left: -80%; top: 0; width: 260%; height: 100%; cursor: grab; touch-action: none; user-select: none; will-change: transform; }
+.segment-mask-panel--dragging { cursor: grabbing; }
+.segment-mask-panel:focus-visible { outline: 3px solid #75c7de; outline-offset: -5px; }
+.segment-mask-panel svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.segment-mask-panel__fill { fill: #477f91; }
+.segment-mask-panel__border { fill: none; stroke: #9bc8d5; stroke-width: 8; }
+.segment-mask-panel__hole-edges rect { fill: none; stroke: #b7dce5; stroke-width: 5; }
+.segment-mask-controls { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 13px; color: #5b8494; font-size: 15px; }
+.segment-mask-controls i { position: relative; display: block; width: min(190px, 38vw); height: 4px; border-radius: 99px; background: #b4cbd3; }
+.segment-mask-controls i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 35%; height: 8px; border-radius: 99px; background: #638fa0; transform: translate(-50%, -50%); }
+
+.shape-puzzle { margin-top: 35px; }
+.shape-puzzle__brief { padding: 20px 23px; border: 1px solid #abc2ca; background: #edf4f6; color: #3e6473; }
+.shape-puzzle__brief p { margin: 0; font-size: 14px; line-height: 1.65; }
+.shape-puzzle__brief p + p { margin-top: 8px; color: #173e51; font-weight: 700; }
+.text-red { color: #b94d54; font-weight: 700; }
+.text-green { color: #4b8968; font-weight: 700; }
+.text-yellow { color: #b28720; font-weight: 700; }
+.text-purple { color: #795b9d; font-weight: 700; }
+.shape-puzzle__target { display: flex; align-items: center; justify-content: center; gap: clamp(15px, 4vw, 34px); padding: 20px; border: 1px solid #7ca7b6; border-top: 0; background: linear-gradient(135deg, #173e51, #0e2c3c); box-shadow: inset 0 0 25px rgba(98,191,216,.08); }
+.shape-value { display: inline-flex; align-items: center; gap: 7px; color: #426574; font: 700 15px/1 sans-serif; }
+.shape-value i { display: block; width: 17px; height: 17px; border: 2px solid rgba(255,255,255,.7); border-radius: 50%; background: currentColor; box-shadow: 0 0 8px color-mix(in srgb, currentColor 65%, transparent); }
+.shape-value--red { color: #c7545b; }
+.shape-value--green { color: #55a076; }
+.shape-value--yellow { color: #d5aa3f; }
+.shape-value--purple { color: #9470ba; }
+.shape-puzzle__target .shape-value { color: #eaf6f8; font-size: 20px; }
+.shape-puzzle__target .shape-value i { color: var(--signal-colour); width: 24px; height: 24px; }
+.shape-puzzle__target .shape-value--red { --signal-colour: #c7545b; }
+.shape-puzzle__target .shape-value--green { --signal-colour: #55a076; }
+.shape-puzzle__target .shape-value--yellow { --signal-colour: #d5aa3f; }
+.shape-puzzle__target .shape-value--purple { --signal-colour: #9470ba; }
+.shape-puzzle__matrix-head { display: grid; grid-template-columns: 54px repeat(3, 1fr); align-items: center; margin-top: 18px; padding: 8px 0; border: 1px solid #a9c1ca; border-bottom: 0; background: #dce9ed; }
+.shape-puzzle__matrix-head .shape-glyph { width: 44px; height: 44px; justify-self: center; }
+.shape-puzzle__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding-left: 54px; }
+.shape-puzzle__cell { position: relative; min-width: 0; }
+.shape-pattern-key { position: absolute; right: calc(100% + 10px); top: 0; display: flex; width: 44px; height: 100%; align-items: center; justify-content: center; gap: 5px; border: 1px solid #a9c1ca; background: #dce9ed; overflow: hidden; }
+.shape-pattern-key i { display: block; background: #477f91; border-radius: 3px; }
+.shape-pattern-key--vertical { flex-direction: row; }
+.shape-pattern-key--vertical i { width: 4px; height: 66%; }
+.shape-pattern-key--horizontal { flex-direction: column; }
+.shape-pattern-key--horizontal i { width: 66%; height: 4px; }
+.shape-pattern-key--plain i { display: none; }
+.shape-pattern-key--plain::after { content: ""; width: 24px; height: 24px; border-radius: 50%; background: #477f91; }
+.shape-choice { --figure-colour: #4c99b3; position: relative; display: grid; width: 100%; min-height: 155px; place-items: center; padding: 14px 8px 12px; border: 1px solid #94b5c0; background: linear-gradient(150deg, #edf5f7, #d9e7ea); color: var(--figure-colour); cursor: pointer; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease; }
+.shape-choice::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(29,83,103,.1); pointer-events: none; }
+.shape-choice:hover { border-color: #4c99b3; transform: translateY(-2px); }
+.shape-choice .shape-glyph { width: 76px; height: 76px; filter: drop-shadow(0 4px 4px rgba(11,50,66,.22)); transition: transform .18s ease, filter .18s ease; }
+.shape-glyph__pattern-base { fill: #62aac1; }
+.shape-glyph__pattern-line { fill: none; stroke: #d4edf3; stroke-width: 4; }
+.shape-glyph__edge { fill: none; stroke: #143b4c; stroke-width: 4; stroke-linejoin: round; }
+.shape-choice__values { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.shape-choice__values .shape-value { font-size: 13px; }
+.shape-choice__values .shape-value i { width: 14px; height: 14px; border-color: #f3fafb; }
+.shape-choice--selected { z-index: 1; border-color: #69c7df; background: #f5fbfc; box-shadow: 0 0 0 2px #69c7df, 0 0 27px rgba(59,174,205,.62); transform: scale(1.055); }
+.shape-choice--selected:hover { transform: scale(1.055); }
+.shape-choice--selected .shape-glyph { transform: scale(1.08); filter: drop-shadow(0 0 11px #42b9d8); }
+.shape-puzzle--solved .shape-choice--selected { animation: shape-confirm .7s ease-in-out infinite alternate; }
+.shape-puzzle__status { display: flex; min-height: 43px; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 14px; border-block: 1px solid #b9cdd3; color: #72909b; font: 700 11px/1 sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+.shape-puzzle__status strong { color: #327b90; font-size: 10px; }
+@keyframes shape-confirm { to { box-shadow: 0 0 0 2px #69c7df, 0 0 36px #42b9d8; } }
+
 .celestial-shell { background: radial-gradient(circle at 50% 8%, #173954 0%, #091c2c 48%, #040c14 100%); }
 .celestial-shell::before { opacity: .3; background-image: radial-gradient(circle, rgba(221,245,255,.9) 0 1px, transparent 1.6px); background-size: 51px 51px; }
 .celestial-shell .snow-scene { opacity: .03; }
@@ -417,6 +495,25 @@ h1 { margin: 0; color: var(--ink-deep); font-family: Georgia, "Times New Roman",
   .route-target__symbol { width: 38px; height: 38px; }
   .route-target__line { min-height: 48px; }
   .morse-graph__header { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .station-walk__facts { grid-template-columns: 1fr; }
+  .station-walk__facts span + span { border-top: 1px solid var(--line); border-left: 0; }
+  .walk-cipher { width: 100%; height: auto; }
+  .shape-puzzle__brief { padding: 16px; }
+  .shape-puzzle__target { flex-wrap: wrap; gap: 12px 20px; padding: 16px 10px; }
+  .shape-puzzle__target .shape-value { font-size: 17px; }
+  .shape-puzzle__target .shape-value i { width: 19px; height: 19px; }
+  .shape-puzzle__matrix-head { grid-template-columns: 36px repeat(3, 1fr); }
+  .shape-puzzle__matrix-head .shape-glyph { width: 34px; height: 34px; }
+  .shape-puzzle__grid { gap: 6px; padding-left: 36px; }
+  .shape-pattern-key { right: calc(100% + 5px); width: 31px; gap: 3px; }
+  .shape-pattern-key--vertical i { width: 3px; }
+  .shape-pattern-key--horizontal i { height: 3px; }
+  .shape-pattern-key--plain::after { width: 17px; height: 17px; }
+  .shape-choice { min-height: 116px; padding: 9px 3px 8px; }
+  .shape-choice .shape-glyph { width: 52px; height: 52px; }
+  .shape-choice__values { flex-direction: column; gap: 5px; }
+  .shape-choice__values .shape-value { gap: 4px; font-size: 11px; }
+  .shape-choice__values .shape-value i { width: 11px; height: 11px; }
   .target-marker { min-height: 110px; }
   .signal-board__lamps { grid-template-columns: repeat(2, minmax(70px, 105px)); gap: 22px 48px; padding: 34px 16px; }
   .signal-lamp { width: 86px; border-width: 4px; }

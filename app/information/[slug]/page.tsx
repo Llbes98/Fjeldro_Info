@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { CodeGate } from "@/app/components/CodeGate";
 import { FjeldroMark } from "@/app/components/FjeldroMark";
 import { SnowScene } from "@/app/components/SnowScene";
@@ -8,6 +9,8 @@ import { ConstellationPuzzle } from "@/app/components/ConstellationPuzzle";
 import { RadarRoute } from "@/app/components/RadarRoute";
 import { RouteSwapPuzzle } from "@/app/components/RouteSwapPuzzle";
 import { MorseGraph } from "@/app/components/MorseGraph";
+import { SlidingSegmentMask } from "@/app/components/SlidingSegmentMask";
+import { ShapeSelectionPuzzle } from "@/app/components/ShapeSelectionPuzzle";
 import { allPages, findPage } from "@/lib/tracks";
 
 const spaRules = [
@@ -133,6 +136,36 @@ function FacilitiesPanel() {
   );
 }
 
+function WalkCipher() {
+  return (
+    <Image
+      className="walk-cipher"
+      src="/images/fjeldro-traeer.svg"
+      width={2481}
+      height={317}
+      alt="Træer og snefnug langs skovbrynet"
+      unoptimized
+    />
+  );
+}
+
+function StationWalkPanel() {
+  return (
+    <section className="station-walk" aria-label="Gåturen fra stationen til Fjeldro">
+      <div className="station-walk__facts">
+        <span><strong>Ca. 45 min.</strong> til fods</span>
+        <span><strong>Rolig rute</strong> gennem skov og åbent landskab</span>
+      </div>
+      <div className="station-walk__text">
+        <h2>Den første del af opholdet</h2>
+        <p>Når toget har forladt perronen, bliver lydene fra stationen hurtigt svagere. Vejen begynder roligt og fører videre mod skoven, hvor granerne står tættere, og sneen dæmper hvert skridt.</p>
+        <p>Undervejs skifter ruten mellem små skovpartier og åbne stræk med udsigt til de omkringliggende bakker. På klare dage kan man ane fjeldet længere fremme, mens lysene fra Fjeldro langsomt dukker op mellem træerne.</p>
+        <p>Stien er afmærket hele vejen. Beregn cirka 45 minutter, gå i et behageligt tempo, og brug turen til at lade rejsen falde til ro, inden du når resortet.</p>
+      </div>
+    </section>
+  );
+}
+
 export function generateStaticParams() {
   return allPages.map(({ slug }) => ({ slug }));
 }
@@ -149,7 +182,7 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
   const documentLabel = page.documentLabel ?? "Fjeldro · Deltagerinformation";
 
   return (
-    <main className={`public-shell ${isRestricted ? "restricted-shell" : ""} ${isConstellationPage || isRadarPage ? "celestial-shell" : ""}`}>
+    <main className={`public-shell ${isRestricted ? "restricted-shell" : ""} ${isConstellationPage || isRadarPage ? "celestial-shell" : ""} ${page.slug === "klippevind-c6q2y9" ? "walk-shell" : ""}`}>
       <SnowScene />
       <header className="site-header"><FjeldroMark compact /></header>
       <article className={`content-card ${page.kind === "final" ? "content-card--document" : ""} ${isRestricted ? "content-card--restricted" : ""} ${isConstellationPage || isRadarPage ? "content-card--celestial" : ""}`} style={{ "--accent": page.track.accent } as React.CSSProperties}>
@@ -188,6 +221,9 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
         {page.slug === "fyrrespor-x3n6k8" && <FacilitiesPanel />}
         {isRoutePuzzlePage && page.nextSlug && <RouteSwapPuzzle nextSlug={page.nextSlug} />}
         {page.slug === "kurvesignal-k2f8d4" && <MorseGraph />}
+        {page.slug === "klippevind-c6q2y9" && <StationWalkPanel />}
+        {page.slug === "stenmaerke-f3u8l2" && <SlidingSegmentMask />}
+        {page.slug === "formarkiv-b8n4q6" && page.nextSlug && <ShapeSelectionPuzzle nextSlug={page.nextSlug} />}
         {isConstellationPage && page.nextSlug && <ConstellationPuzzle nextSlug={page.nextSlug} />}
         {isRadarPage && <RadarRoute />}
         {page.kind !== "final" && page.nextSlug && page.code && !isConstellationPage && (
@@ -203,6 +239,7 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
           </section>
         )}
       </article>
+      {page.slug === "klippevind-c6q2y9" && <WalkCipher />}
     </main>
   );
 }

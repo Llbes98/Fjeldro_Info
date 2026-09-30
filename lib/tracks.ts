@@ -56,8 +56,9 @@ export const tracks: Track[] = [
     label: "Klippehytten",
     accent: "#547d8d",
     pages: [
-      { slug: "klippevind-c6q2y9", kind: "start", eyebrow: "Ophold 04", title: "Velkommen til Klippehytten", body: "Et ophold i fjeldet kræver det rette udstyr. Skriv det, du selv skal kunne gå med.", nextSlug: "stenmærke-f3u8l2", code: "taske" },
-      { slug: "stenmærke-f3u8l2", kind: "step", eyebrow: "Information 04.1", title: "Mærket i stenen", body: "Din reservation gælder i et bestemt antal dage. Skriv antallet med bogstaver.", nextSlug: "skyggetop-k7d1z5", code: "syv" },
+      { slug: "klippevind-c6q2y9", kind: "start", eyebrow: "Ankomst til Fjeldro", title: "Turen fra stationen", body: "Fra stationen fører en stemningsfuld gåtur gennem landskabet og frem til resortet. Turen tager cirka 45 minutter i et roligt tempo.", nextSlug: "stenmaerke-f3u8l2", code: "pist" },
+      { slug: "stenmaerke-f3u8l2", kind: "step", eyebrow: "Teknisk registrering · 04.1", title: "Segmentpanelet", body: "", nextSlug: "formarkiv-b8n4q6", code: "921" },
+      { slug: "formarkiv-b8n4q6", kind: "step", eyebrow: "Formregistrering · 04.2", title: "Figurarkivet", body: "Tre markører danner den godkendte kontrolsekvens.", nextSlug: "skyggetop-k7d1z5" },
       { slug: "skyggetop-k7d1z5", kind: "final", eyebrow: "Dokument 04", title: "Information til Klippehytten", body: "Dokumentet er klar til dig." },
     ],
   },

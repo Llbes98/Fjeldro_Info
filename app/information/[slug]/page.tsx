@@ -7,6 +7,7 @@ import { SignalLamps } from "@/app/components/SignalLamps";
 import { ConstellationPuzzle } from "@/app/components/ConstellationPuzzle";
 import { RadarRoute } from "@/app/components/RadarRoute";
 import { RouteSwapPuzzle } from "@/app/components/RouteSwapPuzzle";
+import { MorseGraph } from "@/app/components/MorseGraph";
 import { allPages, findPage } from "@/lib/tracks";
 
 const spaRules = [
@@ -186,6 +187,7 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
         {page.slug === "frostlinje-p8d3w5" && <NatureMorsePanel />}
         {page.slug === "fyrrespor-x3n6k8" && <FacilitiesPanel />}
         {isRoutePuzzlePage && page.nextSlug && <RouteSwapPuzzle nextSlug={page.nextSlug} />}
+        {page.slug === "kurvesignal-k2f8d4" && <MorseGraph />}
         {isConstellationPage && page.nextSlug && <ConstellationPuzzle nextSlug={page.nextSlug} />}
         {isRadarPage && <RadarRoute />}
         {page.kind !== "final" && page.nextSlug && page.code && !isConstellationPage && (

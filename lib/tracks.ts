@@ -46,8 +46,9 @@ export const tracks: Track[] = [
     accent: "#315f77",
     pages: [
       { slug: "fyrrespor-x3n6k8", kind: "start", eyebrow: "Faciliteter på Fjeldro", title: "Alt til opholdet", body: "På Fjeldro finder du alt det, der gør dagene på fjeldet både behagelige, varme og fulde af oplevelser.", nextSlug: "dalpassage-r9b4h7", code: "538" },
-      { slug: "dalpassage-r9b4h7", kind: "step", eyebrow: "Teknisk oversigt · 03.1", title: "Rutenettet", body: "", nextSlug: "taagekant-v1s5p3" },
-      { slug: "taagekant-v1s5p3", kind: "final", eyebrow: "Dokument 03", title: "Information til Fyrrehytten", body: "Dokumentet er klar til dig." },
+      { slug: "dalpassage-r9b4h7", kind: "step", eyebrow: "Teknisk oversigt · 03.1", title: "Rutenettet", body: "", nextSlug: "kurvesignal-k2f8d4" },
+      { slug: "kurvesignal-k2f8d4", kind: "step", eyebrow: "Signalregistrering · 03.2", title: "Målekurve", body: "", nextSlug: "taagekant-v1s5p3", code: "skisko" },
+      { slug: "taagekant-v1s5p3", kind: "final", eyebrow: "Gæstearkiv · Udvalgte år", title: "Liste over gæster", body: "Her finder du et udvalg af registrerede gæster fra de seneste år.", documentUrl: "/documents/fjeldro-gaesteliste.pdf", documentLabel: "Fjeldro · Liste over gæster" },
     ],
   },
   {

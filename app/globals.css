@@ -166,6 +166,23 @@ h1 { margin: 0; color: var(--ink-deep); font-family: Georgia, "Times New Roman",
 .route-puzzle__status { min-height: 22px; margin: 14px 0 0; color: #39758a; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
 .route-puzzle--solved .route-tile { color: #43aeca; border-color: #75c8dc; box-shadow: inset 0 0 0 3px rgba(255,255,255,.7), 0 0 16px rgba(71,186,215,.35); }
 
+.morse-graph { margin-top: 36px; }
+.morse-graph__screen { overflow: hidden; color: #8dd8eb; background: radial-gradient(circle at 50% 38%, #123f52, #071e2b 72%); border: 2px solid #477f91; box-shadow: inset 0 0 45px rgba(0,0,0,.48), 0 10px 28px rgba(6,47,71,.18); font-family: "Courier New", monospace; }
+.morse-graph__header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 17px; color: #9dd9e8; background: rgba(3,18,27,.58); border-bottom: 1px solid #3e7183; font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.morse-graph__header i { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #82d5e9; box-shadow: 0 0 8px #64c9e1; }
+.morse-graph__screen svg { display: block; width: 100%; height: auto; }
+.morse-graph__plot { fill: rgba(5, 31, 43, .56); stroke: #3e7183; stroke-width: 1.5; }
+.morse-graph__minor-grid { fill: none; stroke: rgba(111,190,211,.09); stroke-width: 1; }
+.morse-graph__major-grid { stroke: rgba(118,197,217,.17); stroke-width: 1; }
+.morse-graph__screen text { fill: #739ba8; font: 11px "Courier New", monospace; }
+.morse-graph__axis { stroke: #83b8c7; stroke-width: 2; }
+.morse-graph__axis-arrow { fill: #83b8c7; }
+.morse-graph__screen text.morse-graph__axis-label { fill: #b5e3ee; font-size: 15px; font-weight: 700; }
+.morse-graph__segment { stroke: #9cecff; stroke-width: 5; stroke-linecap: round; }
+.morse-graph__segment--new { stroke-dasharray: 1; stroke-dashoffset: 1; animation: graph-segment-draw 900ms linear forwards; }
+.morse-graph__point { fill: #e6fbff; stroke: #62bfd8; stroke-width: 2; }
+@keyframes graph-segment-draw { to { stroke-dashoffset: 0; } }
+
 .celestial-shell { background: radial-gradient(circle at 50% 8%, #173954 0%, #091c2c 48%, #040c14 100%); }
 .celestial-shell::before { opacity: .3; background-image: radial-gradient(circle, rgba(221,245,255,.9) 0 1px, transparent 1.6px); background-size: 51px 51px; }
 .celestial-shell .snow-scene { opacity: .03; }
@@ -399,6 +416,7 @@ h1 { margin: 0; color: var(--ink-deep); font-family: Georgia, "Times New Roman",
   .route-target { grid-template-columns: 39px 1fr 27px; gap: 6px; }
   .route-target__symbol { width: 38px; height: 38px; }
   .route-target__line { min-height: 48px; }
+  .morse-graph__header { align-items: flex-start; flex-direction: column; gap: 6px; }
   .target-marker { min-height: 110px; }
   .signal-board__lamps { grid-template-columns: repeat(2, minmax(70px, 105px)); gap: 22px 48px; padding: 34px 16px; }
   .signal-lamp { width: 86px; border-width: 4px; }

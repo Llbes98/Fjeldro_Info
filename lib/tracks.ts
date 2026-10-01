@@ -67,8 +67,9 @@ export const tracks: Track[] = [
     label: "Tindehytten",
     accent: "#244e67",
     pages: [
-      { slug: "tindesne-h4m7r2", kind: "start", eyebrow: "Ophold 05", title: "Velkommen til Tindehytten", body: "De sidste forberedelser venter. Skriv det måltid, du skal medbringe til den første dag.", nextSlug: "kamspor-w8p1c6", code: "madpakke" },
-      { slug: "kamspor-w8p1c6", kind: "step", eyebrow: "Information 05.1", title: "Sporet langs kammen", body: "Hvilken ugedag begynder opholdet? Skriv dagen for at få adgang til dokumentet.", nextSlug: "stillefjeld-n2g9a4", code: "søndag" },
+      { slug: "tindesne-h4m7r2", kind: "start", eyebrow: "Himlen mod nord", title: "votutv", body: "", nextSlug: "kamspor-w8p1c6", code: "aurora" },
+      { slug: "kamspor-w8p1c6", kind: "step", eyebrow: "Feltregistrering · 05.1", title: "Skæringspunkter", body: "", nextSlug: "lyskreds-e3v7k5" },
+      { slug: "lyskreds-e3v7k5", kind: "step", eyebrow: "Forbindelsesnet · 05.2", title: "Ruten gennem sekskanterne", body: "", nextSlug: "stillefjeld-n2g9a4" },
       { slug: "stillefjeld-n2g9a4", kind: "final", eyebrow: "Dokument 05", title: "Information til Tindehytten", body: "Dokumentet er klar til dig." },
     ],
   },

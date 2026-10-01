@@ -11,6 +11,8 @@ import { RouteSwapPuzzle } from "@/app/components/RouteSwapPuzzle";
 import { MorseGraph } from "@/app/components/MorseGraph";
 import { SlidingSegmentMask } from "@/app/components/SlidingSegmentMask";
 import { ShapeSelectionPuzzle } from "@/app/components/ShapeSelectionPuzzle";
+import { CornerCountPuzzle } from "@/app/components/CornerCountPuzzle";
+import { HexRouteCode } from "@/app/components/HexRouteCode";
 import { allPages, findPage } from "@/lib/tracks";
 
 const spaRules = [
@@ -166,6 +168,24 @@ function StationWalkPanel() {
   );
 }
 
+function NorthernLightsPanel() {
+  return (
+    <section className="northern-lights-panel" aria-label="Information om nordlys">
+      <div className="northern-lights-panel__sky" aria-hidden="true">
+        <i /><i /><i />
+        <span>Nord · 00:00–03:00</span>
+      </div>
+      <div className="northern-lights-panel__text">
+        <h2>Lys over fjeldet</h2>
+        <p>På klare aftener kan mørket over <strong>Fjeldro</strong> blive brudt af lange bånd af grønt, blåt og violet lys. De bevæger sig langsomt hen over himlen og kan på få minutter skifte fra en svag glød til tydelige bølger mellem stjernerne.</p>
+        <p>Nordlys opstår, når energirige partikler fra solen møder gasser højt oppe i Jordens atmosfære. Farven afhænger blandt andet af, hvilke gasser partiklerne rammer, og hvor højt over jordoverfladen lyset dannes.</p>
+        <p>Omkring <strong>Fjeldro</strong> er udsigten bedst på kolde, skyfrie nætter, hvor luften er tør, og kunstigt lys ikke overdøver himlen. Kig mod nord, og giv øjnene tid til at vænne sig til mørket.</p>
+        <p>Fra de åbne områder ved <strong>Fjeldro</strong> kan lyset ofte ses fra sen aften og ind i nattens første timer. Tag varmt tøj på, hold afstand til markerede vinterspor, og brug gerne en svag lygte på vej tilbage.</p>
+      </div>
+    </section>
+  );
+}
+
 export function generateStaticParams() {
   return allPages.map(({ slug }) => ({ slug }));
 }
@@ -224,6 +244,9 @@ export default async function InformationPage({ params }: { params: Promise<{ sl
         {page.slug === "klippevind-c6q2y9" && <StationWalkPanel />}
         {page.slug === "stenmaerke-f3u8l2" && <SlidingSegmentMask />}
         {page.slug === "formarkiv-b8n4q6" && page.nextSlug && <ShapeSelectionPuzzle nextSlug={page.nextSlug} />}
+        {page.slug === "tindesne-h4m7r2" && <NorthernLightsPanel />}
+        {page.slug === "kamspor-w8p1c6" && page.nextSlug && <CornerCountPuzzle nextSlug={page.nextSlug} />}
+        {page.slug === "lyskreds-e3v7k5" && page.nextSlug && <HexRouteCode nextSlug={page.nextSlug} />}
         {isConstellationPage && page.nextSlug && <ConstellationPuzzle nextSlug={page.nextSlug} />}
         {isRadarPage && <RadarRoute />}
         {page.kind !== "final" && page.nextSlug && page.code && !isConstellationPage && (

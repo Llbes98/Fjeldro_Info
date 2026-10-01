@@ -59,7 +59,7 @@ export const tracks: Track[] = [
       { slug: "klippevind-c6q2y9", kind: "start", eyebrow: "Ankomst til Fjeldro", title: "Turen fra stationen", body: "Fra stationen fører en stemningsfuld gåtur gennem landskabet og frem til resortet. Turen tager cirka 45 minutter i et roligt tempo.", nextSlug: "stenmaerke-f3u8l2", code: "pist" },
       { slug: "stenmaerke-f3u8l2", kind: "step", eyebrow: "Teknisk registrering · 04.1", title: "Segmentpanelet", body: "", nextSlug: "formarkiv-b8n4q6", code: "921" },
       { slug: "formarkiv-b8n4q6", kind: "step", eyebrow: "Formregistrering · 04.2", title: "Figurarkivet", body: "Tre markører danner den godkendte kontrolsekvens.", nextSlug: "skyggetop-k7d1z5" },
-      { slug: "skyggetop-k7d1z5", kind: "final", eyebrow: "Dokument 04", title: "Information til Klippehytten", body: "Dokumentet er klar til dig." },
+      { slug: "skyggetop-k7d1z5", kind: "final", eyebrow: "Teknisk dokumentation", title: "Vedligeholdelsesrapporter", body: "Her finder du de registrerede vedligeholdelsesrapporter for Fjeldro.", documentUrl: "/documents/fjeldro-vedligeholdelsesrapporter.pdf", documentLabel: "Fjeldro · Vedligeholdelsesrapporter" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const tracks: Track[] = [
       { slug: "tindesne-h4m7r2", kind: "start", eyebrow: "Himlen mod nord", title: "votutv", body: "", nextSlug: "kamspor-w8p1c6", code: "aurora" },
       { slug: "kamspor-w8p1c6", kind: "step", eyebrow: "Feltregistrering · 05.1", title: "Skæringspunkter", body: "", nextSlug: "lyskreds-e3v7k5" },
       { slug: "lyskreds-e3v7k5", kind: "step", eyebrow: "Forbindelsesnet · 05.2", title: "Ruten gennem sekskanterne", body: "", nextSlug: "stillefjeld-n2g9a4" },
-      { slug: "stillefjeld-n2g9a4", kind: "final", eyebrow: "Dokument 05", title: "Information til Tindehytten", body: "Dokumentet er klar til dig." },
+      { slug: "stillefjeld-n2g9a4", kind: "final", eyebrow: "Områdeoversigt", title: "Kort", body: "Her finder du kortet over området ved Fjeldro.", documentUrl: "/documents/fjeldro-kort.pdf", documentLabel: "Fjeldro · Kort" },
     ],
   },
 ];
